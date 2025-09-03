@@ -2,7 +2,7 @@ import os
 import sys
 from books_recommender.logger.log import logging
 from books_recommender.exception.exception_handler import AppException
-from books_recommender.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from books_recommender.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
 from books_recommender.constant import CONFIG_FILE_PATH
 from books_recommender.utils.util import read_yaml_file
 
@@ -62,4 +62,23 @@ class APPConfiguration:
     except Exception as e:
       raise AppException(e, sys) from e
     
-      
+  def get_data_transformation_config(self) -> DataTransformationConfig:
+    try:
+      artifacts_dir = self.configs_info.artifacts_config.artifacts_dir
+      dataset_dir = self.configs_info.data_ingestion_config.dataset_dir
+      clean_data_dir = self.configs_info.data_validation_config.clean_data_dir
+      data_transformation_config  = self.configs_info.data_transformation_config
+
+      clean_data_path = os.path.join(artifacts_dir,dataset_dir,clean_data_dir,"clean_data.csv")
+      transformed_data_dir = os.path.join(artifacts_dir,dataset_dir,data_transformation_config.transformed_data_dir)
+
+      response = DataTransformationConfig (
+        clean_data_path = clean_data_path,
+        transformed_data_dir = transformed_data_dir
+      )
+      logging.info(f"Data Transformation Config: {response}")
+      return response
+    
+    except Exception as e:
+      raise AppException(e,sys) from e
+
