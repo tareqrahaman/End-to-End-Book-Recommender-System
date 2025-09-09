@@ -16,3 +16,6 @@ ModelTrainerConfig = namedtuple("ModelTrainerConfig", ["transformed_data_file_di
                                                       "trained_model_dir",
                                                       "trained_model_name"])
 
+ModelRecommendationConfig = namedtuple("ModelRecommendationConfig", ["book_name_serialized_object",
+                                                                    "book_pivot_serialized_object", "final_rating_serialized_object",
+                                                                    "trained_model_path"])

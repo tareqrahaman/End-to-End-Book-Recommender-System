@@ -4,7 +4,7 @@ import sys
 import urllib.request
 import os
 import zipfile
-from books_recommender.utils.util import read_yaml_file
+# from books_recommender.utils.util import read_yaml_file
 from books_recommender.constant import *
 
 #--testing logging--
@@ -22,13 +22,19 @@ from books_recommender.constant import *
 
 #print(CONFIG_FILE_PATH)
 
-url = "https://github.com/tareqrahaman/Datasets/raw/main/book_data.zip"
-local_path = "test_download.zip"
+# url = "https://github.com/tareqrahaman/Datasets/raw/main/book_data.zip"
+# local_path = "test_download.zip"
 
-urllib.request.urlretrieve(url, local_path)
-print(f"Downloaded {os.path.getsize(local_path)} bytes")
-print(f"Is ZIP: {zipfile.is_zipfile(local_path)}")
+# urllib.request.urlretrieve(url, local_path)
+# print(f"Downloaded {os.path.getsize(local_path)} bytes")
+# print(f"Is ZIP: {zipfile.is_zipfile(local_path)}")
 
-# Check what's inside
-with open(local_path, 'rb') as f:
-    print(f"First 50 bytes: {f.read(50)}")
+# # Check what's inside
+# with open(local_path, 'rb') as f:
+#     print(f"First 50 bytes: {f.read(50)}")
+
+# value = [[3,4,5,3,2]]
+# print(len(value))
+
+import streamlit as st
+st.write("Hello Champions!")
