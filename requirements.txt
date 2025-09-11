@@ -1,7 +1,11 @@
-scikit-learn
-PyYAML
-numpy
-pandas
-streamlit
--e .
-python-box #for configbox
+scikit-learn==1.0.2
+PyYAML==6.0.1
+numpy==1.21.6
+pandas==1.3.5
+streamlit==1.23.1
+book_recommender @ file:./book_recommender
+python-box==7.0.1 #for configbox
+
+# locally understood local package installation: 
+# book_recommender @ file:./book_recommender
+# -e .
